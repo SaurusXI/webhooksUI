@@ -42,6 +42,9 @@
 
 
     </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
 </head>
 
 <body>
@@ -56,7 +59,7 @@
 
         <!-- <textarea class="form-control" id="exampleFormControlTextarea1" rows="7" placeholder="Input JSON"></textarea> -->
         <script>
-			var editor = monaco.editor.create(document.getElementById('container'), {
+			window.editor = monaco.editor.create(document.getElementById('container'), {
 				value: ['{', '\t"hello": "world"', '}'].join('\n'),
 				language: 'json',
                 wordBasedSuggestions: false,
@@ -66,9 +69,11 @@
 			});
 		</script>
         <br>
-        <button type="button" class="btn btn-outline-success float-end">Trigger</button>
+        <button type="button" class="btn btn-outline-success float-end" id="trigger-webhooks-btn">Trigger</button>
     </div>
     
 </body>
+
+<script src="trigger.js"></script>
 
 </html>
