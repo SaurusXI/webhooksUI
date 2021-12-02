@@ -50,7 +50,7 @@ $("#signup-call").click(async () => {
 })
 
 async function loginuser(username, password) {
-  const response = await axios.post('localhost:3000/auth/login', {
+  const response = await axios.post('http://localhost:3000/auth/login', {
     username,
     password
   }, {
@@ -103,4 +103,5 @@ async function autoRedirect() {
 
 async function logout() {
     localStorage.removeItem('authToken');
+    document.location.href = './index.html';
 }

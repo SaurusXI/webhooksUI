@@ -1,14 +1,13 @@
-// const { default: axios } = require("axios");
-
-$("#trigger-webhooks-btn").click(() => { console.log(typeof window.editor.getValue()); })
+$("#trigger-webhooks-btn").click(triggerWebhooks);
 
 async function triggerWebhooks() {
     try {
-        axios.post('http://localhost:3000/trigger', JSON.parse(window.editor.getValue()), {
+        await axios.post('http://localhost:3000/trigger', JSON.parse(window.editor.getValue()), {
             headers: {
-                Authorization: 'Bearer ' + localStorage.getItem('accessToken')
+                Authorization: 'Bearer ' + localStorage.getItem('authToken')
             }
         });
+        alert('Webhooks triggered');
     } catch (err) {
         alert('Unable to trigger webhooks - error response from server');
         console.log(err.message);
